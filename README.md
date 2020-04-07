@@ -1,68 +1,100 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
 
-## Available Scripts
+# react-auth-template
 
-In the project directory, you can run:
 
-### `yarn start`
+## Installation
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. [Download](../../archive/master.zip) this template.
+1. Unzip and rename the template directory (`unzip ~/Downloads/react-auth-template-master.zip`).
+1. Move into the new project and `git init`.
+1. Empty [`README.md`](README.md) and fill with your own content.
+1. Replace name in `package.json` with your
+   projects name.
+1. Replace the `"homepage"` field in `package.json` with your (public) Github
+   account name and repository name.
+1. Install dependencies with `npm install`.
+      - if it doesn't work run `npm update` then `npm rebuild node-sass` (this might take a while)
+1. `git add` and `git commit` your changes.
+1. Run the development server with `npm start`.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Deployment
 
-### `yarn test`
+1.  `npm install gh-pages`
+2.  Update package.json with 
+```
+"homepage": "http://<git-name>.github.io/<repo-name>"
+```
+```
+"scripts": {
+  //...
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build"
+}
+```
+3.  Run `npm run deploy`
+4.  From then on they only have to run `npm run deploy` from master anytime they need to deploy again.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+See [react gh-pages docs](https://github.com/gitname/react-gh-pages) for more details.
 
-### `yarn build`
+## About
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Most of the development dependencies, such as linters, SCSS compiler, Webpack
+config, NPM scripts, etc in this repo come from there.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+It includes all the components and routes needed to sign up, sign in, change
+passwords, and sign out of an API built with either template linked above, with
+no need for modification.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**NOTE**: You should customize the included components to suit you app! They're
+provided as a guide and a bare minimum of functionality and style. Consider
+changing the provided SCSS styles, modifying the auth code, improving the flash
+messages, etc.
 
-### `yarn eject`
+## Structure
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Currently, the top-level `App` component stores the currently authenticated
+user in state, as well as data related to the flash messages. `App` renders the
+`Header` component, and a list of routes, each of which render a component from
+`src/auth/components`. The `auth` directory has two non-component files, `api`
+and `messages`, which contain all the needed `axios` calls, and messages to
+display when API calls succeed or fail, respectively.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+We recommend following this pattern in your app. For instance, if you are making
+an app that keeps track of books, you might want a `books` directory next to
+`auth`, which contains its own `api` and `messages` files, as well as a
+`components` directory.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Features
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### `<AuthenticatedRoute />`
 
-## Learn More
+This template contains a handy component for creating routes that require a
+user to be authenticated before visiting. This component lives in
+`src/auth/components/AuthenticatedRoute.js` and is already required in `App`.
+It's a thin wrapper around React Router's `<Route />` component. The only
+difference is that it expects a prop called `user`, and if that prop is falsy,
+it will render a `<Redirect />` that takes the user to `/`. **If you want to use
+it, you must pass it the currently authenticated as a prop!**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+It supports both the `component=` and `render=` attributes, but like `<Route />`
+it will not forward props to the component if you use `component=`.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+ ### `src/apiConfig.js`
 
-### Code Splitting
+ This file will determine whether you're in a production or development
+environment and choose an API URL accordingly. Don't forget to replace the
+`production` URL with your deployed API's URL.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## Tasks
 
-### Analyzing the Bundle Size
+Developers should run these often!
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+- `npm run start`: generates bundles, watches, and livereloads.
+- `npm run deploy`: builds and deploys master branch
 
-### Making a Progressive Web App
+## [License](LICENSE)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+1. All content is licensed under a CC­BY­NC­SA 4.0 license.
+1. All software code is licensed under GNU GPLv3. For commercial use or
+    alternative licensing, please contact legal@ga.co.

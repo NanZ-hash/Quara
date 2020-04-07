@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { Component } from 'react'
 import './App.scss'
 import { Route } from 'react-router-dom'
 
-// Authentication from the template provided.. 
 import AuthenticatedRoute from './auth/components/AuthenticatedRoute'
 import Header from './header/Header'
 import SignUp from './auth/components/SignUp'
@@ -11,10 +10,7 @@ import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
 import AlertDismissible from './auth/components/AlertDismissible'
 
-
-
-
-class App extends React.Component {
+class App extends Component {
   constructor () {
     super()
 
@@ -54,9 +50,6 @@ class App extends React.Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword alert={this.alert} user={user} />
           )} />
-          {/* <AuthenticatedRoute user={user} path='/main' render={() => (
-             <the user route ,, for the main component  />
-          )} /> */}
         </main>
       </React.Fragment>
     )
