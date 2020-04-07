@@ -56,9 +56,6 @@ class App extends Component {
             <Link className ={'div'} to="/joke">Tell you a joke</Link>
             <h1> OR </h1>
             <Link className ={'div'} to="/story">Read you a story</Link>
-            <div>
-            <Link className ={'div'} to="/library">library</Link>
-            </div>
             </div>
           )} />
 
