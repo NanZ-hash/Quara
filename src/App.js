@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './App.scss'
-import { Route } from 'react-router-dom'
+import './App.css'
+import { Route ,Link, BrowserRouter as Router } from 'react-router-dom'
 
 import AuthenticatedRoute from './auth/components/AuthenticatedRoute'
 import Header from './header/Header'
@@ -50,7 +51,20 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword alert={this.alert} user={user} />
           )} />
+          <AuthenticatedRoute user={user} path='/' render={() => (
+            <div>
+            <Link className ={'div'} to="/joke">Tell you a joke</Link>
+            <h1> OR </h1>
+            <Link className ={'div'} to="/story">Read you a story</Link>
+            <div>
+            <Link className ={'div'} to="/library">library</Link>
+            </div>
+            </div>
+          )} />
+
         </main>
+        {/* the route to my main Component after authorizing it to enter the app */}
+        
       </React.Fragment>
     )
   }
