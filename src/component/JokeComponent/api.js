@@ -7,13 +7,27 @@ const getJokes = joke => {
 }
 
 //POST 
-const postJokes = (content) =>{ 
-    return axios.post(`${apiUrl}/api/v1/jokes`, { joke: {content} })
+const postJokes = (content,user) =>{ 
+    return  axios({ url: apiUrl + '/api/v1/jokes',
+    method: 'POST',
+    headers: {
+
+      'Authorization': `Token ${user.token}` // FOR RAILS
+    },
+    data: {
+        jokes: {
+            content
+      }
+      }
+    })
 }
+
+
 
 //DELETE by ID
 const deleteJokeByID =  id => { 
     return axios.delete(`${apiUrl}/api/v1/jokes/${id}`)
+    
 }
 
 //UPDATE by ID
