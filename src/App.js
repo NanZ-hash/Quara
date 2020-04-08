@@ -11,6 +11,10 @@ import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
 import AlertDismissible from './auth/components/AlertDismissible'
 
+// Import components 
+import JokeContainer from './component/JokeComponent/jokeContainer'; 
+import StoryContainer from './component/StoryComponent/storyContainer';
+
 class App extends Component {
   constructor () {
     super()
@@ -51,17 +55,31 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword alert={this.alert} user={user} />
           )} />
-          <AuthenticatedRoute user={user} path='/' render={() => (
-            <div>
-            <Link className ={'div'} to="/joke">Tell you a joke</Link>
-            <h1> OR </h1>
-            <Link className ={'div'} to="/story">Read you a story</Link>
-            </div>
-          )} />
-
+        
         </main>
         {/* the route to my main Component after authorizing it to enter the app */}
-        
+        <AuthenticatedRoute user={user} path='/' render={() => (
+             <> 
+             <Router>
+               {/* <div>
+                 <Link to="/">Home</Link>
+                 </div>
+                */}
+               <div>
+                 <Link className ={'div'} to="/joke">Tell you a joke</Link>
+                 <h1> OR </h1>
+                 <Link className ={'div'} to="/story">Read you a story</Link>
+                 <div>
+                 </div>
+                 </div>
+             
+           <div>
+             <Route path="/joke" component={JokeContainer} />
+             <Route path="/story" component={StoryContainer} />
+           </div>
+         </Router>
+             </>
+          )} />
       </React.Fragment>
     )
   }

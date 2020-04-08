@@ -18,7 +18,7 @@ componentDidMount() {
     .then(res => {
       console.log(res)
       this.setState({
-        jokeList: res.data
+        jokeList: res.data.jokes
       })
   })
   .catch(err => console.log(err))
@@ -30,7 +30,7 @@ componentDidMount() {
   postJokes(content)
   .then(res => {
    console.log(res)
-   const jokeList = [ ...this.state.jokeList, res.data ]
+   const jokeList = [ ...this.state.jokeList, res.data.jokes ]
    this.setState({jokeList})
    })
    .catch(err => {
@@ -75,14 +75,17 @@ editJoke =(id, editedContent) =>{
 
 
   render() { 
- // MAP all over the stories in the storyList
- const allJokes= this.state.jokeList.map( (joke,index) => {
-  return (<Joke joke={joke}
+
+ // MAP all over the stories in the storyList 
+ const allJokes= this.state.jokeList.map((joke,index) => {
+  return (
+  <Joke joke={joke}
     key={index}
     id={joke.id} 
     content={joke.content}
     deleteJokeHandler={this.deleteJoke}
-    editJoke={this.editJoke} />)
+    editJoke={this.editJoke} />
+    )
  })
 
     return (
