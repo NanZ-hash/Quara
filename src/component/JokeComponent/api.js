@@ -32,7 +32,10 @@ const deleteJokeByID =  id => {
 
 //UPDATE by ID
 const editJokeByID = (id,content) => { 
-    return axios.put(`${apiUrl}/api/v1/jokes/${id}`,{content})
+    return axios.put(`${apiUrl}/api/v1/jokes/${id}`,{ jokes: {
+        content
+  }
+})
 }
 
 

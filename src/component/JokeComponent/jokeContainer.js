@@ -9,7 +9,6 @@ class JokeContainer extends React.Component {
     this.state = {
         jokeList: [],
     }
-    console.log("this is 14" ,this.state.jokeList)
 }
 
 componentDidMount() {
@@ -20,8 +19,6 @@ componentDidMount() {
       this.setState({
         jokeList: res.data.jokes
       })
-      console.log("this is 23" ,this.state.jokeList)
-    
   })
   .catch(err => console.log(err))
 }
@@ -31,15 +28,8 @@ componentDidMount() {
  addNewJoke=(content)=> {
   postJokes(content, this.props.user)
   .then(res => {
-  //  console.log("Line 34"+ res)
-   console.log("Line 35 /// ", res.data)
-  //  console.log("Line 36"+ Object.keys(res.data))
-  //  console.log("this is 35" ,this.state.jokeList)
    const jokeList = [ ...this.state.jokeList, res.data.joke ]
-   console.log("this is 37" ,this.state.jokeList)
-   
    this.setState({jokeList})
-   console.log("this is 41" ,this.state.jokeList)
    })
    .catch(err => {
    console.log(err)
