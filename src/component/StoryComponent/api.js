@@ -7,8 +7,20 @@ const getStories = story => {
 }
 
 //POST 
-const postStories = (title,content) =>{ 
-    return axios.post(`${apiUrl}/api/v1/stories`, { story: {title,content} })
+const postStories = (title,content,user) =>{ 
+    return  axios({ url: apiUrl + '/api/v1/stories',
+    method: 'POST',
+    headers: {
+
+      'Authorization': `Token ${user.token}` // FOR RAILS
+    },
+    data: {
+        story: {
+            title,
+            content
+      }
+      }
+    })
 }
 
 //DELETE by ID

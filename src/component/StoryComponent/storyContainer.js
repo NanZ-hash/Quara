@@ -1,14 +1,13 @@
 import React from 'react'
 import Story from './story'
 import NewStory from './newStory'
-
 import { getStories , postStories , deleteStoryByID , editStoryByID} from './api'
+
 export default class StoryContainer extends React.Component {
   constructor(props){
     super(props)
     this.state = {
         storyList: [],
-        editingStoryById: null ,
     }
 }
 
@@ -18,7 +17,7 @@ componentDidMount() {
     .then(res => {
       console.log(res)
       this.setState({
-        storyList: res.data
+        storyList: res.data.stories
       })
   })
   .catch(err => console.log(err))
@@ -26,10 +25,10 @@ componentDidMount() {
 
  // POST A NEW STORY 
  addNewStory=(title,content)=> {
-   postStories(title,content)
+   postStories(title,content,this.props.user)
    .then(res => {
     console.log(res)
-    const storyList = [ ...this.state.storyList, res.data ]
+    const storyList = [ ...this.state.storyList, res.data.story ]
     this.setState({storyList})
     })
     .catch(err => {
@@ -47,11 +46,6 @@ deleteStory=(id)=> {
       this.setState({storyList})
   })
   .catch(err => console.log(err))
-}
-
-// passing the Id for the item we want to edit in the state..
-editingStory= id => { 
-  this.setState ({editingStoryById: id})
 }
 
 

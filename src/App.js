@@ -76,7 +76,7 @@ class App extends Component {
            <div>
              {/* // psaa the user object */}
              <Route path="/joke" render={() => ( <JokeContainer user={user} /> )}/>
-             <Route path="/story" component={StoryContainer} />
+             <Route path="/story" render={() => ( <StoryContainer user={user} /> )}/>
            </div>
          </Router>
              </>
