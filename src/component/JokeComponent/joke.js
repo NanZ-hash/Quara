@@ -1,5 +1,6 @@
 import React from 'react' 
 import EditJoke from './editJoke'
+import Button from 'react-bootstrap/Button'
 
  export default class Joke extends React.Component { 
     
@@ -14,7 +15,7 @@ import EditJoke from './editJoke'
             <EditJoke id={this.props.id}
              content={this.props.content} 
              editJoke={this.props.editJoke}/>
-            <button onClick={this.deleteJokeHandler}>Delete</button>
+            <Button variant="danger" onClick={this.deleteJokeHandler}>Delete</Button>
             </div>
             ) 
 

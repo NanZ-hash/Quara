@@ -1,4 +1,6 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button'
+import Form from 'react-bootstrap/Form'
  
  const NewStory = ({newStorySubmit = e => e}) => {
     let title, content
@@ -10,20 +12,24 @@ import React from 'react';
     }
 
     return (
-        <form onSubmit={submit}>
-            <div>
-            <input  ref={input => title = input}
+
+        <Form >
+                <Form.Label>Title : </Form.Label>
+                <Form.Control  
+                    ref={Control => title = Control}
                     type="text"
-                    placeholder="Title" required />
-                    </div>
-                    <div>
-            <textarea ref={textarea => content = textarea}
+                    placeholder="Title" required
+                    />
+
+                    <Form.Label>Content : </Form.Label>
+                <Form.Control
+                    
+                    ref={Control => content = Control}
                     type="textarea"
+                    as="textarea" rows="3" 
                     placeholder="Content" required/>
-                    </div>
-   
-            <button>Add Story</button>
-        </form>
+                    <Button variant="primary" onClick={submit} > Add Story </Button>
+                   </Form> 
     )
 }
 
