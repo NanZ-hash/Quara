@@ -88,7 +88,7 @@ editJoke =(id, editedContent) =>{
     return (
       <> 
       {allJokes}
-      <div>
+      <div className={'div'}>
       <NewJoke newJokeSubmit={this.addNewJoke} />
       </div>
       </>

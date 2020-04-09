@@ -80,14 +80,10 @@ editStory =(id, editedStory) =>{
           })
     return (
       <> 
-
-{allStories}
+    {allStories}
+      <div className={'div'}>
       <NewStory newStorySubmit={this.addNewStory} />
-      
-    
-  
-    
-    
+      </div>
       </>
     )
   }

@@ -58,29 +58,9 @@ class App extends Component {
         
         </main>
         {/* the route to my main Component after authorizing it to enter the app */}
-        <AuthenticatedRoute user={user} path='/' render={() => (
-             <> 
-             <Router>
-               {/* <div>
-                 <Link to="/">Home</Link>
-                 </div>
-                */}
-               <div>
-                 <Link className ={'div'} to="/joke">Tell you a joke</Link>
-                 <h1> OR </h1>
-                 <Link className ={'div'} to="/story">Read you a story</Link>
-                 <div>
-                 </div>
-                 </div>
-             
-           <div>
-             {/* // psaa the user object */}
-             <Route path="/joke" render={() => ( <JokeContainer user={user} /> )}/>
-             <Route path="/story" render={() => ( <StoryContainer user={user} /> )}/>
-           </div>
-         </Router>
-             </>
-          )} />
+        <AuthenticatedRoute user={user} path="/joke" render={() => ( <JokeContainer user={user} /> )}/>
+        <AuthenticatedRoute user={user} path="/story" render={() => ( <StoryContainer user={user} /> )}/>
+        
       </React.Fragment>
     )
   }
