@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 import './App.scss'
 import './App.css'
-import { Route ,Link, BrowserRouter as Router } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 
 import AuthenticatedRoute from './auth/components/AuthenticatedRoute'
 import Header from './header/Header'
@@ -14,8 +14,9 @@ import AlertDismissible from './auth/components/AlertDismissible'
 // Import components 
 import JokeContainer from './component/JokeComponent/jokeContainer'; 
 import StoryContainer from './component/StoryComponent/storyContainer';
+import RandomJoke from './HELLO'
 
-class App extends Component {
+class App extends React.Component {
   constructor () {
     super()
 
@@ -60,7 +61,7 @@ class App extends Component {
         {/* the route to my main Component after authorizing it to enter the app */}
         <AuthenticatedRoute user={user} path="/joke" render={() => ( <JokeContainer user={user} /> )}/>
         <AuthenticatedRoute user={user} path="/story" render={() => ( <StoryContainer user={user} /> )}/>
-        
+        <AuthenticatedRoute user={user} path="/hello" render={() => ( <RandomJoke user={user} /> )}/>
       </React.Fragment>
     )
   }

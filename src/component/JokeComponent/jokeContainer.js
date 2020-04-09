@@ -70,9 +70,6 @@ editJoke =(id, editedContent) =>{
   render() { 
 
  // MAP all over the stories in the storyList 
- console.log(`here 77 ${Object.keys(this.state.jokeList)}`)
- console.log(`here 78 ${this.state.jokeList}`)
-
  const allJokes= this.state.jokeList.map( (joke,index) => {
   return (
   <Joke 
@@ -87,6 +84,7 @@ editJoke =(id, editedContent) =>{
 
     return (
       <> 
+      <h3>Joke Library</h3>
       {allJokes}
       <div className={'div'}>
       <NewJoke newJokeSubmit={this.addNewJoke} />

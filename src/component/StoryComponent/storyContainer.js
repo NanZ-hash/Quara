@@ -80,6 +80,7 @@ editStory =(id, editedStory) =>{
           })
     return (
       <> 
+        <h3>Stories Library</h3>
     {allStories}
       <div className={'div'}>
       <NewStory newStorySubmit={this.addNewStory} />

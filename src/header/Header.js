@@ -21,7 +21,7 @@ const unauthenticatedOptions = (
 
 const alwaysOptions = (
   <React.Fragment>
-    <Link to="/">Home</Link>
+    <Link to="/hello">Hello</Link>
   </React.Fragment>
 )
 
