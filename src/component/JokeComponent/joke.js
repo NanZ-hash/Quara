@@ -1,6 +1,8 @@
 import React from 'react' 
 import EditJoke from './editJoke'
 import Button from 'react-bootstrap/Button'
+import Card from 'react-bootstrap/Card'
+
 
  export default class Joke extends React.Component { 
     
@@ -10,13 +12,18 @@ import Button from 'react-bootstrap/Button'
  
     render () { 
 
-        return ( <div> 
-            <p>{this.props.content}</p>
+        return (
+            <Card >
+        <Card.Body>
+            <Card.Text>
+            {this.props.content}
+            </Card.Text>
             <EditJoke id={this.props.id}
              content={this.props.content} 
              editJoke={this.props.editJoke}/>
             <Button variant="danger" onClick={this.deleteJokeHandler}>Delete</Button>
-            </div>
+            </Card.Body>
+            </Card>
             ) 
 
     }

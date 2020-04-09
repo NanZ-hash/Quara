@@ -15,26 +15,22 @@ export default class Story extends React.Component {
 
  
     render() { 
-
-        return (
-            
-<Card >
-  <Card.Body>
-    <Card.Title>{this.props.title}</Card.Title>
-    <Card.Text>
-    {this.props.content}
-    </Card.Text>
-    <EditStory id={this.props.id}
-             title={this.props.title}
-             content={this.props.content} 
-             editStory={this.props.editStory}/>
-            <Button variant="danger" onClick={this.deleteStoryHandler}>Delete</Button>
-  </Card.Body>
-</Card>
+        return (          
+        <Card >
+        <Card.Body>
+          <Card.Title>{this.props.title}</Card.Title>
+          <Card.Text>
+          {this.props.content}
+          </Card.Text>
+          <EditStory id={this.props.id}
+                  title={this.props.title}
+                  content={this.props.content} 
+                  editStory={this.props.editStory}/>
+                  <Button variant="danger" onClick={this.deleteStoryHandler}>Delete</Button>
+        </Card.Body>
+      </Card>
         )
-    }
-
-  
+    }  
 }
 
 
