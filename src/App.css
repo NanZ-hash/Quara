@@ -38,10 +38,10 @@
 }
 
 body{
- 
+ background: url("https://i2.wp.com/aseantogetherrun.com/wp-content/uploads/2017/06/h1-background-img-1.jpg?ssl=1");
   color: rgba(26, 90, 87, 0.75);
   font-family: 'Anonymous Pro', monospace;  
-  background-color: rgb(232, 241, 248);  
+  /* background-color: rgb(232, 241, 248);   */
   text-align: center;
 	/* width: 100%; */
 	margin: auto ;
