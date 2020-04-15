@@ -37,7 +37,14 @@ import Card from 'react-bootstrap/Card'
              <Card >
         <Card.Body>
             <Card.Text>
-            <Button variant="danger"  onClick={this.genRandJoke}>Click ME ! (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ </Button>
+                <p>Hi ..!
+                    <br />
+                     This is a test project with Rails api and ReactJS (ゝω•)~☆ 
+                     <br />
+                     This project is a test for the CURD operation 
+                     </p>
+                <hr /> 
+             <Button variant="danger"  onClick={this.genRandJoke}>Click ME ! (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ </Button>
             
             <div className={'div'}>
            {this.state.helloJoke.map( joke=> {

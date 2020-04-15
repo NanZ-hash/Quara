@@ -61,7 +61,7 @@ class App extends React.Component {
         {/* the route to my main Component after authorizing it to enter the app */}
         <AuthenticatedRoute user={user} path="/joke" render={() => ( <JokeContainer user={user} /> )}/>
         <AuthenticatedRoute user={user} path="/story" render={() => ( <StoryContainer user={user} /> )}/>
-        <AuthenticatedRoute user={user} path="/hello" render={() => ( <RandomJoke user={user} /> )}/>
+        <Route user={user} path="/hello" render={() => ( <RandomJoke user={user} /> )}/>
       </React.Fragment>
     )
   }
